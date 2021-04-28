@@ -342,6 +342,21 @@ table th {
   margin: 0;
 }
 
+.svg-icon {
+  display: inline-block;
+  position: relative;
+  height: 1.4rem;
+  width: 1.4rem;
+}
+
+.svg-icon path {
+  fill: var(--color-text-primary);
+}
+
+.svg-icon:hover path {
+  fill: var(--color-link-primary-hover);
+}
+
 .icons {
   color: var(--color-text-primary);
   font-size: 1.4rem;
@@ -623,6 +638,11 @@ p code {
 
   #mainmenu nav li a {
     padding: 12px;
+  }
+
+  .svg-icon {
+    height: 1.6rem;
+    width: 1.6rem;
   }
 
   .icons {

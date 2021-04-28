@@ -22,9 +22,17 @@
 				<ul>
 					{{- range $index, $key := .Site.Params.Social -}}
 					{{- if $key.url }}
-					<li><a href="{{ relURL $key.url }}"><i title="{{ $key.name }}" class="icons {{ $key.icon }}"></i></a></li>
+					<li>
+						<a href="{{ relURL $key.url }}">
+							{{ partial "svg" $key.icon }}
+						</a>
+					</li>
 					{{- else -}}
-					<li><a href="{{ $key.cmd }}"><i title="{{ $key.name }}" class="icons {{ $key.icon }}"></i></a></li>
+					<li>
+						<a href="{{ $key.cmd }}">
+							{{ partial "svg" $key.icon }}
+						</a>
+					</li>
 					{{- end -}}
 					{{- end -}}
 				</ul>
