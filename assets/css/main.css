@@ -303,7 +303,8 @@ table th {
 
 #title-description {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #social nav {
@@ -597,11 +598,15 @@ p code {
 
   #title-description {
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
   }
 
   #subtitle {
     margin: 5px 0 5px 0;
+  }
+
+  #social {
+    align-self: flex-end;
   }
 
   #social nav ul {
