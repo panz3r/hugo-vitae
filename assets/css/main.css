@@ -1,41 +1,41 @@
+/* roboto-regular - latin */
 @font-face {
-  font-family: 'Roboto Regular';
-  font-display: auto;
-  font-style:  normal;
+  font-family: 'Roboto';
+  font-style: normal;
   font-weight: 400;
-  src: local('Roboto Regular'), url('../webfonts/Roboto-Regular.woff') format('woff');
+  src: local(''),
+       url('../webfonts/roboto-v27-latin/roboto-v27-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../webfonts/roboto-v27-latin/roboto-v27-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-@font-face {
-  font-family: 'Roboto Medium';
-  font-display: auto;
-  font-style:  normal;
-  font-weight: 500;
-  src: local('Roboto Medium'), url('../webfonts/Roboto-Medium.woff') format('woff');
-}
-
+/* roboto-700 - latin */
 @font-face {
   font-family: 'Roboto Bold';
-  font-display: auto;
-  font-style:  normal;
-  font-weight: 600;
-  src: local('Roboto Bold'), url('../webfonts/Roboto-Bold.woff') format('woff');
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('../webfonts/roboto-v27-latin/roboto-v27-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../webfonts/roboto-v27-latin/roboto-v27-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
+/* roboto-slab-regular - latin */
 @font-face {
-  font-family: 'Roboto Slab Regular';
-  font-display: auto;
+  font-family: 'Roboto Slab';
   font-style: normal;
   font-weight: 400;
-  src: local('Roboto Slab Regular'), url('../webfonts/RobotoSlab-Regular.woff') format('woff');
+  src: local(''),
+       url('../webfonts/roboto-slab-v13-latin/roboto-slab-v13-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../webfonts/roboto-slab-v13-latin/roboto-slab-v13-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
+/* roboto-mono-regular - latin */
 @font-face {
   font-family: 'Roboto Mono';
-  font-display: auto;
   font-style: normal;
   font-weight: 400;
-  src: local('Roboto Mono'), url('../webfonts/RobotoMono-Regular.woff') format('woff');
+  src: local(''),
+       url('../webfonts/roboto-mono-v13-latin/roboto-mono-v13-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../webfonts/roboto-mono-v13-latin/roboto-mono-v13-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 :root {
@@ -95,7 +95,7 @@ html {
 }
 
 body {
-  font-family: "Roboto Regular", serif;
+  font-family: "Roboto", serif;
   font-weight: 400;
   font-size: 18px;
   color: var(--color-text-primary);
@@ -119,7 +119,7 @@ header nav li {
 }
 
 footer {
-  font-family: "Roboto Slab Regular", serif;
+  font-family: "Roboto Slab", serif;
   text-align: right;
   font-size: 0.75em;
   color: var(--color-text-secondary);
@@ -386,6 +386,7 @@ table th {
 .date-section-header .day,
 .date-section-header .rest {
   display: inline;
+  font-family: "Roboto Slab", serif;
 }
 
 .recent-posts .posts .post {
@@ -403,7 +404,7 @@ table th {
 }
 
 .post-header .meta .date .day {
-    font-family: "Roboto Slab Regular", serif;
+    font-family: "Roboto Slab", serif;
     font-weight: 700;
     line-height: 0.45em;
     font-size: 3em;
@@ -415,18 +416,18 @@ table th {
 .post-header .meta .date .rest {
     display: block;
     font-size: 0.80em;
-    font-family: "Roboto Slab Regular", serif;
+    font-family: "Roboto Slab", serif;
 }
 
 .post-header h1.title {
     margin: 0 0 8px;
-    font-family: "Roboto Slab Regular", serif;
+    font-family: "Roboto Slab", serif;
     font-weight: bold;
 }
 
 .post .title.small {
     margin: 0 0 8px 0;
-    font-family: "Roboto Slab Regular", serif;
+    font-family: "Roboto Slab", serif;
 }
 
 .post .post-header {
@@ -434,13 +435,13 @@ table th {
 }
 
 .post .post-header .author {
-  font-family: "Roboto Slab Regular", serif;
+  font-family: "Roboto Slab", serif;
   font-size: 0.85em;
   margin-bottom: 4px;
 }
 
 .post .post-header .description {
-  font-family: "Roboto Slab Regular", serif;
+  font-family: "Roboto Slab", serif;
   font-size: 0.7em;
 }
 
@@ -509,7 +510,7 @@ table th {
 
 .page-title {
     font-weight: bold;
-    font-family: "Roboto Slab Regular", serif;
+    font-family: "Roboto Slab", serif;
     margin: -10px 0 30px 0;
 }
 
