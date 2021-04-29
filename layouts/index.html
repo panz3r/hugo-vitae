@@ -58,40 +58,46 @@
 <div class="recent-posts">
 	<div class="posts">
 	{{ $pages := where .Site.RegularPages "Section" "in" .Site.Params.mainSections }}
-	{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
-	{{ range $paginator.Pages }}
-		<div class="post">
-			<div class="post-header">
-				<div class="meta">
-					<div class="date">
-						<span class="day">{{ dateFormat "02" .Date }}</span>
-						<span class="rest">{{ if $.Site.Data.month }}{{ index $.Site.Data.month (printf "%d" .Date.Month) }} {{ .Date.Year }}{{ else }}{{ dateFormat "Jan 2006" .Date }}{{ end }}</span>
-					</div>
-				</div>
-				<div class="matter">
-					<h3 class="title small"><a href="{{ .RelPermalink }}">{{.Title}}{{ if .Draft }}<sup class="draft-label">DRAFT</sup>{{ end }}</a></h3>
-					<div class="author">
-					{{ if eq .Site.Params.listAuthor true}}
-						{{ if isset .Params "author" }}
-							{{ if isset .Params "authorlink" }}
-								{{ i18n "authorpretext" }} <a href="{{ relURL .Params.authorlink }}" target="_blank" rel="noopener noreferrer">{{ .Params.author }}</a>
-							{{ else }}
-								{{ i18n "authorpretext" }} {{ .Params.author }}
+	{{ $pages := where $pages "Params.hidden" "ne" true }}
+	{{ range (.Paginate ($pages.GroupByDate "2006-01-02")).PageGroups }}
+	<div class="date-section">
+		{{- if ne (dateFormat "02 Jan 2006" .Key) (dateFormat "02 Jan 2006" now) -}}
+		<div class="date-section-header">
+			<h2 class="day">{{ dateFormat "02" .Key }}</h2>
+			<h3 class="rest">{{ dateFormat "January 2006" .Key }}</h3>
+		</div>
+		{{- end -}}
+
+		{{ range .Pages }}
+			<div class="post">
+				<div class="post-header">
+					<div class="matter">
+						<h3 class="title small"><a href="{{ .RelPermalink }}">{{.Title}}{{ if .Draft }}<sup class="draft-label">DRAFT</sup>{{ end }}</a></h3>
+						<div class="author">
+						{{ if eq .Site.Params.listAuthor true}}
+							{{ if isset .Params "author" }}
+								{{ if isset .Params "authorlink" }}
+									{{ i18n "authorpretext" }} <a href="{{ relURL .Params.authorlink }}" target="_blank" rel="noopener noreferrer">{{ .Params.author }}</a>
+								{{ else }}
+									{{ i18n "authorpretext" }} {{ .Params.author }}
+								{{ end }}
 							{{ end }}
 						{{ end }}
-					{{ end }}
+						</div>
+						<span class="description">
+						{{ if isset .Params "description" }}
+							{{ .Description }}
+						{{ else }}
+							{{ .Plain | htmlUnescape | safeHTML | truncate 140 }}
+						{{ end }}
+						</span>
 					</div>
-					<span class="description">
-					{{ if isset .Params "description" }}
-						{{ .Description }}
-					{{ else }}
-						{{ .Plain | htmlUnescape | safeHTML | truncate 140 }}
-					{{ end }}
-					</span>
 				</div>
 			</div>
-		</div>
+		{{ end }}
+	</div>
 	{{ end }}
+
 	{{ partial "paginator.html" . }}
 	</div>
 </div>
