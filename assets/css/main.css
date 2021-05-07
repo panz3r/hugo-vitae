@@ -3,7 +3,8 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local(''),
+  font-display: swap;
+  src: local('Roboto'),
        url('../webfonts/roboto-v27-latin/roboto-v27-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
        url('../webfonts/roboto-v27-latin/roboto-v27-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
@@ -13,7 +14,8 @@
   font-family: 'Roboto Bold';
   font-style: normal;
   font-weight: 700;
-  src: local(''),
+  font-display: swap;
+  src: local('Roboto Bold'),
        url('../webfonts/roboto-v27-latin/roboto-v27-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
        url('../webfonts/roboto-v27-latin/roboto-v27-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
@@ -23,7 +25,8 @@
   font-family: 'Roboto Slab';
   font-style: normal;
   font-weight: 400;
-  src: local(''),
+  font-display: swap;
+  src: local('Roboto Slab'),
        url('../webfonts/roboto-slab-v13-latin/roboto-slab-v13-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
        url('../webfonts/roboto-slab-v13-latin/roboto-slab-v13-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
@@ -33,7 +36,8 @@
   font-family: 'Roboto Mono';
   font-style: normal;
   font-weight: 400;
-  src: local(''),
+  font-display: swap;
+  src: local('Roboto Mono'),
        url('../webfonts/roboto-mono-v13-latin/roboto-mono-v13-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
        url('../webfonts/roboto-mono-v13-latin/roboto-mono-v13-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
@@ -61,6 +65,11 @@
   --color-link-primary-hover: #808080;
   --color-link-secondary: #555;
   --color-link-secondary-hover: #00E;
+
+  --font-primary: "Roboto", sans-serif;
+  --font-primary-bold: "Roboto Bold", sans-serif;
+  --font-secondary: "Roboto Slab", serif;
+  --font-monospace: "Roboto Mono", monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -95,7 +104,7 @@ html {
 }
 
 body {
-  font-family: "Roboto", serif;
+  font-family: var(--font-primary);
   font-weight: 400;
   font-size: 18px;
   color: var(--color-text-primary);
@@ -119,7 +128,7 @@ header nav li {
 }
 
 footer {
-  font-family: "Roboto Slab", serif;
+  font-family: var(--font-secondary);
   text-align: right;
   font-size: 0.75em;
   color: var(--color-text-secondary);
@@ -140,7 +149,8 @@ html, button, input, select, textarea {
 }
 
 b, strong {
-  font-family: "Roboto Bold";
+  font-family: var(--font-primary-bold);
+  font-weight: 700;
 }
 
 a {
@@ -385,7 +395,7 @@ table th {
 .date-section-header .day,
 .date-section-header .rest {
   display: inline;
-  font-family: "Roboto Slab", serif;
+  font-family: var(--font-secondary);
 }
 
 .recent-posts .posts .post {
@@ -403,7 +413,7 @@ table th {
 }
 
 .post-header .meta .date .day {
-    font-family: "Roboto Slab", serif;
+    font-family: var(--font-secondary);
     font-weight: 700;
     line-height: 0.45em;
     font-size: 3em;
@@ -415,18 +425,18 @@ table th {
 .post-header .meta .date .rest {
     display: block;
     font-size: 0.80em;
-    font-family: "Roboto Slab", serif;
+    font-family: var(--font-secondary);
 }
 
 .post-header h1.title {
     margin: 0 0 8px;
-    font-family: "Roboto Slab", serif;
+    font-family: var(--font-secondary);
     font-weight: bold;
 }
 
 .post .title.small {
     margin: 0 0 8px 0;
-    font-family: "Roboto Slab", serif;
+    font-family: var(--font-secondary);
 }
 
 .post .post-header {
@@ -434,13 +444,13 @@ table th {
 }
 
 .post .post-header .author {
-  font-family: "Roboto Slab", serif;
+  font-family: var(--font-secondary);
   font-size: 0.85em;
   margin-bottom: 4px;
 }
 
 .post .post-header .description {
-  font-family: "Roboto Slab", serif;
+  font-family: var(--font-secondary);
   font-size: 0.7em;
 }
 
@@ -508,8 +518,8 @@ table th {
 }
 
 .page-title {
+    font-family: var(--font-secondary);
     font-weight: bold;
-    font-family: "Roboto Slab", serif;
     margin: -10px 0 30px 0;
 }
 
@@ -558,7 +568,7 @@ ul.flat li {
 }
 
 code, kbd, pre, samp {
-  font-family: "Roboto Mono", monospace;
+  font-family: var(--font-monospace);
   font-size: 0.95em;
 }
 

@@ -32,6 +32,15 @@
 	{{- with .OutputFormats.Get "rss" -}}
 	{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 	{{- end -}}
+	<!-- Preload required WebFonts -->
+	<link rel="preload" as="font" href="{{ relURL "/webfonts/roboto-v27-latin/roboto-v27-latin-regular.woff2" }}" />
+	<link rel="preload" as="font" href="{{ relURL "/webfonts/roboto-v27-latin/roboto-v27-latin-regular.woff" }}" />
+	<link rel="preload" as="font" href="{{ relURL "/webfonts/roboto-v27-latin/roboto-v27-latin-700.woff2" }}" />
+	<link rel="preload" as="font" href="{{ relURL "/webfonts/roboto-v27-latin/roboto-v27-latin-700.woff" }}" />
+	<link rel="preload" as="font" href="{{ relURL "/webfonts/roboto-slab-v13-latin/roboto-slab-v13-latin-regular.woff2" }}" />
+	<link rel="preload" as="font" href="{{ relURL "/webfonts/roboto-slab-v13-latin/roboto-slab-v13-latin-regular.woff" }}" />
+	<link rel="preload" as="font" href="{{ relURL "/webfonts/roboto-mono-v13-latin/roboto-mono-v13-latin-regular.woff2" }}" />
+	<link rel="preload" as="font" href="{{ relURL "/webfonts/roboto-mono-v13-latin/roboto-mono-v13-latin-regular.woff" }}" />
 	<!-- Add all css files that are necessary -->
 	{{ $normalizeCSS := resources.Get "css/normalize.css" | resources.Minify | resources.Fingerprint "sha512" }}
 	<link rel="stylesheet" type="text/css" media="screen" href="{{ $normalizeCSS.Permalink | relURL }}" integrity="{{ $normalizeCSS.Data.Integrity }}" />
